@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// Importing using your current relative path
-import 'package:vango_driver_app/features/onboarding/presentation/pages/language_page.dart';
+// Importing using routes file
+import 'package:vango_driver_app/core/routes/app_routes.dart';
 
 void main() {
   runApp(const VanGoApp());
@@ -27,7 +27,8 @@ class VanGoApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // Directs the app to start at the Language Selection Screen
-      home: const LanguagePage(),
+      initialRoute: AppRoutes.language,
+      onGenerateRoute: AppRoutes.generateRoute,
     );
   }
 }
