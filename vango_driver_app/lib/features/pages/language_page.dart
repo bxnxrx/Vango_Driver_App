@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:vango_driver_app/features/onboarding/presentation/pages/home_page.dart';
+import 'package:vango_driver_app/features/pages/home_page.dart';
 
 class LanguagePage extends StatefulWidget {
   const LanguagePage({super.key});

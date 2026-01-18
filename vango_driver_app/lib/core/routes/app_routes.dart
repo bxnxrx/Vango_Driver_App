@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:vango_driver_app/features/onboarding/presentation/pages/language_page.dart';
-import 'package:vango_driver_app/features/onboarding/presentation/pages/home_page.dart';
+import 'package:vango_driver_app/features/pages/home_page.dart';
+import 'package:vango_driver_app/features/pages/language_page.dart'; // Adjust based on your actual auth path
 
 class AppRoutes {
-  // Route Name Constants
   static const String language = '/';
   static const String home = '/home';
 
@@ -15,9 +14,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const HomePage());
       default:
         return MaterialPageRoute(
-          builder: (_) => Scaffold(
-            body: Center(child: Text('No route defined for ${settings.name}')),
-          ),
+          builder: (_) =>
+              const Scaffold(body: Center(child: Text('Route not found'))),
         );
     }
   }
