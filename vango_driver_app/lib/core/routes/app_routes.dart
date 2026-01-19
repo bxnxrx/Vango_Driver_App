@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vango_driver_app/features/pages/home_page.dart';
-import 'package:vango_driver_app/features/pages/language_page.dart'; // Adjust based on your actual auth path
+import 'package:vango_driver_app/features/pages/home/home_page.dart';
+import 'package:vango_driver_app/features/pages/onbording/language_page.dart'; // Adjust based on your actual auth path
 
 class AppRoutes {
   static const String language = '/';
