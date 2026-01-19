@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vango_driver_app/features/pages/vehicle_info/add_vehicle.dart';
 
 
 class OTPVerification extends StatelessWidget {
@@ -99,7 +100,12 @@ class OTPVerification extends StatelessWidget {
                           width: double.infinity,
                           height: 55,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                   MaterialPageRoute(builder: (context) => const AddVehicle()),
+                      );
+                            },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: vangoBlue,
                               shape: RoundedRectangleBorder(

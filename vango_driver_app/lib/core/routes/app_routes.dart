@@ -6,6 +6,7 @@ import 'package:vango_driver_app/features/pages/onbording/language_page.dart';
 import 'package:vango_driver_app/features/pages/auth/create_account.dart';
 import 'package:vango_driver_app/features/pages/auth/OTP_verification.dart';
 import 'package:vango_driver_app/features/pages/trips/trip_page.dart';
+import 'package:vango_driver_app/features/pages/vehicle_info/add_vehicle.dart';
 
 class AppRoutes {
   static const String language = '/';
@@ -15,6 +16,7 @@ class AppRoutes {
   static const String otpverification = '/otp_verification';
   static const String createGroup = '/create-group';
   static const String activeTrip = '/active-trip';
+  static const String addVehicle = '/add-vehicle';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -32,6 +34,8 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const CreateGroupPage());
       case activeTrip:
         return MaterialPageRoute(builder: (_) => const ActiveTripPage());
+      case addVehicle:
+        return MaterialPageRoute(builder: (_) => const AddVehicle());
       default:
         return MaterialPageRoute(
           builder: (_) =>
