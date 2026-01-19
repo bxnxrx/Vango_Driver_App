@@ -7,7 +7,26 @@ class WalletPage extends StatefulWidget {
   State<WalletPage> createState() => _WalletPageState();
 }
 
+// Your list of options
+const List<String> list = <String>[
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
 class _WalletPageState extends State<WalletPage> {
+  // 1. Create a variable to hold the current selection
+  String dropdownValue = list.first;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,16 +44,14 @@ class _WalletPageState extends State<WalletPage> {
               ),
             ),
 
-            // Balance Card (Themed like the active toggle button)
+            // Balance Card (Middle Box)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: Container(
                 width: double.infinity,
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
-                  color: const Color(
-                    0xFF4A80F0,
-                  ), // Same blue as your 'Parents' toggle
+                  color: const Color(0xFF4A80F0),
                   borderRadius: BorderRadius.circular(20),
                   boxShadow: [
                     BoxShadow(
@@ -47,11 +64,57 @@ class _WalletPageState extends State<WalletPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
-                      "Total Balance",
-                      style: TextStyle(color: Colors.white70, fontSize: 16),
+                    // 2. Row containing "Total Balance" and the new Dropdown
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const Text(
+                          "Total Balance",
+                          style: TextStyle(color: Colors.white70, fontSize: 16),
+                        ),
+                        // THE DROPDOWN WIDGET
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
+                          decoration: BoxDecoration(
+                            color: Colors.white.withOpacity(
+                              0.2,
+                            ), // Light background
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: DropdownButtonHideUnderline(
+                            child: DropdownButton<String>(
+                              value: dropdownValue,
+                              icon: const Icon(
+                                Icons.arrow_drop_down,
+                                color: Colors.white,
+                              ),
+                              dropdownColor: const Color(
+                                0xFF4A80F0,
+                              ), // Dropdown menu background
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                              onChanged: (String? value) {
+                                // Update the state when user selects a new item
+                                setState(() {
+                                  dropdownValue = value!;
+                                });
+                              },
+                              items: list.map<DropdownMenuItem<String>>((
+                                String value,
+                              ) {
+                                return DropdownMenuItem<String>(
+                                  value: value,
+                                  child: Text(value),
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 15),
                     const Text(
                       "\$1,250.00",
                       style: TextStyle(
@@ -82,10 +145,10 @@ class _WalletPageState extends State<WalletPage> {
               ),
             ),
 
-            // Transaction List (Themed like your Chat List)
+            // Transaction List
             Expanded(
               child: ListView.builder(
-                itemCount: 6, // Dummy count
+                itemCount: 6,
                 itemBuilder: (context, index) => _buildTransactionItem(index),
               ),
             ),
@@ -95,7 +158,6 @@ class _WalletPageState extends State<WalletPage> {
     );
   }
 
-  // Helper widget for the buttons inside the blue card
   Widget _buildActionButton(IconData icon, String text) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -119,15 +181,13 @@ class _WalletPageState extends State<WalletPage> {
     );
   }
 
-  // Helper widget for list items (Themed like your _buildChatItem)
   Widget _buildTransactionItem(int index) {
-    bool isCredit = index % 2 == 0; // Alternating for dummy data
-
+    bool isCredit = index % 2 == 0;
     return ListTile(
       contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
       leading: CircleAvatar(
         radius: 25,
-        backgroundColor: Colors.grey[100], // Matches your toggle background
+        backgroundColor: Colors.grey[100],
         child: Icon(
           isCredit ? Icons.arrow_downward : Icons.arrow_upward,
           color: isCredit ? const Color(0xFF4A80F0) : Colors.black87,
