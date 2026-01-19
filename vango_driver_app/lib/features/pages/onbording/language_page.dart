@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vango_driver_app/features/pages/auth/Signup_or_login.dart';
+import 'package:vango_driver_app/features/pages/auth/signup_or_login.dart';
 
 import 'package:vango_driver_app/features/pages/home/home_page.dart';
 

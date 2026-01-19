@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vango_driver_app/features/pages/auth/create_account.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -22,7 +23,7 @@ class Login extends StatelessWidget {
                 clipper: BackgroundClipper(),
                 child: Container(
                   width: double.infinity,
-                  height: MediaQuery.of(context).size.height * 0.5,
+                  height: 450,
                   color: vangoBlue,
                 ),
               ),
@@ -99,7 +100,12 @@ class Login extends StatelessWidget {
                             width: double.infinity,
                             height: 55,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                   MaterialPageRoute(builder: (context) => const CreateAccount()),
+                      );
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: vangoBlue,
                                 foregroundColor: Colors.white,
