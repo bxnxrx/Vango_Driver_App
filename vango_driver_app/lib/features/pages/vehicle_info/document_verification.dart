@@ -1,0 +1,175 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class DocumentVerification extends StatelessWidget {
+  const DocumentVerification({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    const Color vangoBlue = Color(0xFF2D325A);
+
+    return Scaffold(
+      backgroundColor: Colors.white,
+      body: Stack(
+        children: [
+          // 1. DIAGONAL BACKGROUND
+          ClipPath(
+            clipper: BackgroundClipper(),
+            child: Container(
+              width: double.infinity,
+              height: 450,
+              color: vangoBlue,
+            ),
+          ),
+
+          // 2. MAIN CARD
+          SafeArea(
+            child: Center(
+              child: Container(
+                width: double.infinity,
+                margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+                padding: const EdgeInsets.all(25),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(30),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.1),
+                      blurRadius: 20,
+                      offset: const Offset(0, 10),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // Header with Back Button
+                    Row(
+                      children: [
+                        IconButton(
+                          onPressed: () => Navigator.pop(context),
+                          icon: const Icon(Icons.arrow_circle_left, size: 35),
+                        ),
+                        const SizedBox(width: 10),
+                        Text(
+                          'Document Verification',
+                          style: GoogleFonts.inter(
+                            fontSize: 22,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+
+                    // Driver License Illustration
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.network(
+                        'https://img.freepik.com/premium-vector/driver-license-card-with-photo-man-identity-card-id-driver-document-vector-illustration_619130-1049.jpg',
+                        height: 180,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    const SizedBox(height: 25),
+
+                    // Instruction Text
+                    Text(
+                      'Hey (Name)!',
+                      style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w500),
+                    ),
+                    const SizedBox(height: 8),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: RichText(
+                        textAlign: TextAlign.center,
+                        text: TextSpan(
+                          style: GoogleFonts.inter(color: Colors.black, fontSize: 14, height: 1.5),
+                          children: const [
+                            TextSpan(text: 'Please provide a Photo of the '),
+                            TextSpan(text: 'Front ', style: TextStyle(fontWeight: FontWeight.bold)),
+                            TextSpan(text: 'and '),
+                            TextSpan(text: 'Back ', style: TextStyle(fontWeight: FontWeight.bold)),
+                            TextSpan(text: 'of your Drives License'),
+                          ],
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+
+                    // Upload Buttons
+                    _buildUploadButton('Photo of Front Side ID', vangoBlue),
+                    const SizedBox(height: 15),
+                    _buildUploadButton('Photo of Back Side ID', vangoBlue),
+                    
+                    const SizedBox(height: 40),
+
+                    // Final Confirm Button
+                    SizedBox(
+                      width: 250,
+                      height: 55,
+                      child: ElevatedButton(
+                        onPressed: () {},
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: vangoBlue,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
+                        child: Text(
+                          'Confirm',
+                          style: GoogleFonts.inter(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildUploadButton(String text, Color color) {
+    return SizedBox(
+      width: double.infinity,
+      height: 55,
+      child: ElevatedButton.icon(
+        onPressed: () {},
+        icon: const Icon(Icons.file_upload_outlined, color: Colors.white),
+        label: Text(
+          text,
+          style: GoogleFonts.inter(color: Colors.white, fontWeight: FontWeight.w600),
+        ),
+        style: ElevatedButton.styleFrom(
+          backgroundColor: color,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BackgroundClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(0, size.height * 0.7); 
+    path.lineTo(size.width, size.height * 0.9); 
+    path.lineTo(size.width, 0); 
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}

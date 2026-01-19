@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vango_driver_app/features/pages/vehicle_info/document_verification.dart';
 
 class AddVehicle extends StatelessWidget {
   const AddVehicle({super.key});
@@ -110,7 +111,12 @@ class AddVehicle extends StatelessWidget {
                               width: double.infinity,
                               height: 55,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(
+                                  context,
+                                   MaterialPageRoute(builder: (context) => const DocumentVerification()),
+                      );
+                                },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: vangoBlue,
                                   shape: RoundedRectangleBorder(
