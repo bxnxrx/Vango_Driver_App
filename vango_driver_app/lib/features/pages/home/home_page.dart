@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:vango_driver_app/core/widgets/vango_bottom_nav.dart';
 import 'package:vango_driver_app/features/pages/chat/chat_page.dart';
-import 'package:vango_driver_app/core/routes/app_routes.dart';
 import 'package:vango_driver_app/features/pages/trips/trip_page.dart';
+import 'package:vango_driver_app/features/pages/wallet/wallet_page.dart'; // Added Wallet import
+import 'package:vango_driver_app/core/routes/app_routes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,19 +15,19 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
-  // List of main feature pages
+  // These pages are now managed within one single Scaffold (Master Shell)
   late final List<Widget> _pages = [
-    _buildDashboardBody(), // Index 0: Home
-    const ActiveTripPage(), // Index 1: Trips
-    const ChatPage(), // Index 2: Chat
-    const Center(child: Text("Wallet Page Coming Soon")), // Index 3: Wallet
+    _buildDashboardBody(),
+    const ActiveTripPage(),
+    const ChatPage(),
+    const WalletPage(), // Replaced placeholder with your real WalletPage
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFF8FAFC),
-      // IndexedStack keeps the Map and Chat state alive when switching tabs
+      // body switches views while keeping the bottomNavigationBar persistent
       body: IndexedStack(index: _selectedIndex, children: _pages),
       bottomNavigationBar: VanGoBottomNav(
         currentIndex: _selectedIndex,
@@ -39,8 +40,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // --- Dashboard Components ---
-
+  // --- Dashboard Logic ---
   Widget _buildDashboardBody() {
     return SingleChildScrollView(
       child: Column(
@@ -56,7 +56,7 @@ class _HomePageState extends State<HomePage> {
                 _buildQuickActions(),
                 const SizedBox(height: 20),
                 _buildEarningsSnapshot(),
-                const SizedBox(height: 100), // Space for floating footer
+                const SizedBox(height: 100),
               ],
             ),
           ),
@@ -65,6 +65,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
+  // ... (Keep your _buildHeader, _buildMapPreview, etc. from your existing file)
   Widget _buildHeader(BuildContext context) {
     return Container(
       padding: const EdgeInsets.fromLTRB(20, 60, 20, 20),
@@ -126,19 +127,6 @@ class _HomePageState extends State<HomePage> {
           fit: BoxFit.cover,
         ),
       ),
-      child: Center(
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          decoration: const BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-          ),
-          child: const CircleAvatar(
-            radius: 6,
-            backgroundColor: Colors.blueAccent,
-          ),
-        ),
-      ),
     );
   }
 
@@ -162,21 +150,14 @@ class _HomePageState extends State<HomePage> {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
           ),
           const Divider(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              _buildTripStat("Start Time", "7.30 AM", Icons.access_time),
-              _buildTripStat("Passenger", "8", Icons.people_outline),
-              _buildTripStat("Stops", "7", Icons.location_on_outlined),
-            ],
-          ),
           const SizedBox(height: 20),
           SizedBox(
             width: double.infinity,
             height: 50,
             child: ElevatedButton(
-              onPressed: () =>
-                  setState(() => _selectedIndex = 1), // Switches to Trips Tab
+              onPressed: () => setState(
+                () => _selectedIndex = 1,
+              ), // This stays in the shell!
               style: ElevatedButton.styleFrom(
                 backgroundColor: const Color(0xFF0066A1),
                 shape: RoundedRectangleBorder(
@@ -197,20 +178,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget _buildTripStat(String label, String value, IconData icon) {
-    return Column(
-      children: [
-        Icon(icon, size: 20, color: Colors.black),
-        const SizedBox(height: 5),
-        Text(label, style: const TextStyle(fontSize: 10, color: Colors.grey)),
-        Text(
-          value,
-          style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
-        ),
-      ],
-    );
-  }
-
+  // (Include _buildQuickActions and _buildEarningsSnapshot as they were)
   Widget _buildQuickActions() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,

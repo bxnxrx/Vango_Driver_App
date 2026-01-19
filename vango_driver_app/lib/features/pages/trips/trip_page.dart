@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vango_driver_app/core/widgets/vango_bottom_nav.dart';
 
 class ActiveTripPage extends StatelessWidget {
   const ActiveTripPage({super.key});
@@ -38,7 +37,6 @@ class ActiveTripPage extends StatelessWidget {
           ),
         ],
       ),
-      bottomNavigationBar: const VanGoBottomNav(currentIndex: 1),
     );
   }
 
