@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vango_driver_app/features/pages/vehicle_info/upload_documents.dart';
 
 class DocumentVerification extends StatelessWidget {
   const DocumentVerification({super.key});
@@ -34,7 +35,7 @@ class DocumentVerification extends StatelessWidget {
                   borderRadius: BorderRadius.circular(30),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.black.withOpacity(0.1),
+                      color: Colors.black.withOpacity(0.15),
                       blurRadius: 20,
                       offset: const Offset(0, 10),
                     ),
@@ -99,34 +100,12 @@ class DocumentVerification extends StatelessWidget {
                     const SizedBox(height: 30),
 
                     // Upload Buttons
-                    _buildUploadButton('Photo of Front Side ID', vangoBlue),
+                    _buildUploadButton(context, 'Photo of Front Side ID', vangoBlue),
                     const SizedBox(height: 15),
-                    _buildUploadButton('Photo of Back Side ID', vangoBlue),
+                    _buildUploadButton(context, 'Photo of Back Side ID', vangoBlue),
                     
                     const SizedBox(height: 40),
-
-                    // Final Confirm Button
-                    SizedBox(
-                      width: 250,
-                      height: 55,
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: vangoBlue,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                        ),
-                        child: Text(
-                          'Confirm',
-                          style: GoogleFonts.inter(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16,
-                          ),
-                        ),
-                      ),
-                    ),
+                    
                   ],
                 ),
               ),
@@ -137,12 +116,17 @@ class DocumentVerification extends StatelessWidget {
     );
   }
 
-  Widget _buildUploadButton(String text, Color color) {
+  Widget _buildUploadButton(BuildContext context, String text, Color color) {
     return SizedBox(
       width: double.infinity,
       height: 55,
       child: ElevatedButton.icon(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const UploadDocuments()),
+          );
+        },
         icon: const Icon(Icons.file_upload_outlined, color: Colors.white),
         label: Text(
           text,

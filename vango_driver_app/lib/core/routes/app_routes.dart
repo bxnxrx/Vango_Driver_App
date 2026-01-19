@@ -9,6 +9,7 @@ import 'package:vango_driver_app/features/pages/trips/trip_page.dart';
 import 'package:vango_driver_app/features/pages/vehicle_info/add_vehicle.dart';
 import 'package:vango_driver_app/features/pages/vehicle_info/document_verification.dart';
 
+
 class AppRoutes {
   static const String language = '/';
   static const String home = '/home';
@@ -19,6 +20,7 @@ class AppRoutes {
   static const String activeTrip = '/active-trip';
   static const String addVehicle = '/add-vehicle';
   static const String documentVerification = '/document-verification';
+  static const String documentUpload = '/document-upload'; 
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -33,6 +35,8 @@ class AppRoutes {
       case addVehicle:
         return MaterialPageRoute(builder: (_) => const AddVehicle());
       case documentVerification:
+        return MaterialPageRoute(builder: (_) => const DocumentVerification());
+      case documentUpload:
         return MaterialPageRoute(builder: (_) => const DocumentVerification());
       case home:
         return MaterialPageRoute(builder: (_) => const HomePage());
