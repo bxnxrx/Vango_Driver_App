@@ -66,18 +66,18 @@ class DocumentVerification extends StatelessWidget {
                     // Driver License Illustration
                     ClipRRect(
                       borderRadius: BorderRadius.circular(15),
-                      child: Image.network(
-                        'https://img.freepik.com/premium-vector/driver-license-card-with-photo-man-identity-card-id-driver-document-vector-illustration_619130-1049.jpg',
-                        height: 180,
+                      child: Image.asset(
+                        'lib/assets/images/Driving_license.jpg',
+                        height: 200,
                         width: double.infinity,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.contain,
                       ),
                     ),
                     const SizedBox(height: 25),
 
                     // Instruction Text
                     Text(
-                      'Hey (Name)!',
+                      'Hey Sakith!',
                       style: GoogleFonts.inter(fontSize: 16, fontWeight: FontWeight.w500),
                     ),
                     const SizedBox(height: 8),
