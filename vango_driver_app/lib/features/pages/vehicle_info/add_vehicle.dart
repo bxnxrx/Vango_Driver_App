@@ -20,7 +20,7 @@ class AddVehicle extends StatelessWidget {
                 clipper: BackgroundClipper(),
                 child: Container(
                   width: double.infinity,
-                  height: 400,
+                  height: 450,
                   color: vangoBlue,
                 ),
               ),
@@ -59,7 +59,7 @@ class AddVehicle extends StatelessWidget {
                           borderRadius: BorderRadius.circular(30),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withOpacity(0.1),
+                              color: Colors.black.withOpacity(0.15),
                               blurRadius: 20,
                               offset: const Offset(0, 10),
                             ),
