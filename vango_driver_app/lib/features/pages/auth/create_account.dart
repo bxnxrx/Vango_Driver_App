@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vango_driver_app/features/pages/auth/OTP_verification.dart';
 
 class CreateAccount extends StatelessWidget {
   const CreateAccount({super.key});
@@ -113,7 +114,12 @@ class CreateAccount extends StatelessWidget {
                             width: double.infinity,
                             height: 55,
                             child: ElevatedButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                   MaterialPageRoute(builder: (context) => const OTPVerification()),
+                      );
+                              },
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: vangoBlue,
                                 shape: StadiumBorder(),
