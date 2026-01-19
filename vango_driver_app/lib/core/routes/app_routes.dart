@@ -6,7 +6,11 @@ import 'package:vango_driver_app/features/pages/onbording/language_page.dart';
 import 'package:vango_driver_app/features/pages/auth/create_account.dart';
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 import 'package:vango_driver_app/features/pages/auth/OTP_verification.dart'; // Adjust based on your actual auth path
+=======
+import 'package:vango_driver_app/features/pages/trips/trip_page.dart';
+>>>>>>> Stashed changes
 =======
 import 'package:vango_driver_app/features/pages/trips/trip_page.dart';
 >>>>>>> Stashed changes
@@ -21,7 +25,12 @@ class AppRoutes {
   static const String createaccount = '/create_account';
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
   static const String otpverification = '/otp_verification';
+=======
+  static const String createGroup = '/create-group';
+  static const String activeTrip = '/active-trip';
+>>>>>>> Stashed changes
 =======
   static const String createGroup = '/create-group';
   static const String activeTrip = '/active-trip';
