@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vango_driver_app/features/pages/home/home_page.dart';
+import 'package:vango_driver_app/core/widgets/background_cliper.dart';
 
 class UploadDocuments extends StatelessWidget {
   const UploadDocuments({super.key});
@@ -148,17 +149,3 @@ class UploadDocuments extends StatelessWidget {
   }
 }
 
-class BackgroundClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-    path.lineTo(0, size.height * 0.7); 
-    path.lineTo(size.width, size.height * 0.9); 
-    path.lineTo(size.width, 0); 
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-}

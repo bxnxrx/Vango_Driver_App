@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:vango_driver_app/features/pages/auth/create_account.dart';
+import 'package:vango_driver_app/core/widgets/background_cliper.dart';
 
 class Login extends StatelessWidget {
   const Login({super.key});
@@ -203,20 +204,3 @@ class Login extends StatelessWidget {
   }
 }
 
-class BackgroundClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    Path path = Path();
-    // Start at top left
-    path.lineTo(0, size.height * 0.75); 
-    // Create the diagonal line to the right side
-    path.lineTo(size.width, size.height * 1.0); 
-    // Complete the box
-    path.lineTo(size.width, 0); 
-    path.close();
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
-}
