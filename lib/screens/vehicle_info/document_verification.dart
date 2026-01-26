@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vango_driver_app/features/pages/vehicle_info/upload_documents.dart';
-import 'package:vango_driver_app/core/widgets/background_cliper.dart';
+import 'package:vango_driver_app/screens/vehicle_info/upload_documents.dart';
+import 'package:vango_driver_app/widgets/background_cliper.dart';
 
 class DocumentVerification extends StatelessWidget {
   const DocumentVerification({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 // Importing using routes file
-import 'package:vango_driver_app/core/routes/app_routes.dart';
+import 'package:vango_driver_app/routes/app_routes.dart';
 
 void main() {
   runApp(const VanGoApp());

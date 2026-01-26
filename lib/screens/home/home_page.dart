@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:vango_driver_app/core/widgets/vango_bottom_nav.dart';
-import 'package:vango_driver_app/features/pages/chat/chat_page.dart';
-import 'package:vango_driver_app/features/pages/trips/trip_page.dart';
-import 'package:vango_driver_app/features/pages/wallet/wallet_page.dart'; // Added Wallet import
-import 'package:vango_driver_app/core/routes/app_routes.dart';
+import 'package:vango_driver_app/widgets/vango_bottom_nav.dart';
+import 'package:vango_driver_app/screens/chat/chat_page.dart';
+import 'package:vango_driver_app/screens/trips/trip_page.dart';
+import 'package:vango_driver_app/screens/wallet/wallet_page.dart'; // Added Wallet import
+import 'package:vango_driver_app/routes/app_routes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

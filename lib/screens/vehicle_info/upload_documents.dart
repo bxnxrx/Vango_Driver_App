@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vango_driver_app/features/pages/home/home_page.dart';
-import 'package:vango_driver_app/core/widgets/background_cliper.dart';
+import 'package:vango_driver_app/screens/home/home_page.dart';
+import 'package:vango_driver_app/widgets/background_cliper.dart';
 
 class UploadDocuments extends StatelessWidget {
   const UploadDocuments({super.key});

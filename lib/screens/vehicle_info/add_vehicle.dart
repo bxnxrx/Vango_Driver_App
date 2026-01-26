@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vango_driver_app/features/pages/vehicle_info/document_verification.dart';
-import 'package:vango_driver_app/core/widgets/background_cliper.dart';
+import 'package:vango_driver_app/screens/vehicle_info/document_verification.dart';
+import 'package:vango_driver_app/widgets/background_cliper.dart';
 
 class AddVehicle extends StatelessWidget {
   const AddVehicle({super.key});

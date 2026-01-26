@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:vango_driver_app/features/pages/auth/OTP_verification.dart';
-import 'package:vango_driver_app/core/widgets/background_cliper.dart';
+import 'package:vango_driver_app/screens/auth/OTP_verification.dart';
+import 'package:vango_driver_app/widgets/background_cliper.dart';
 
 class CreateAccount extends StatelessWidget {
   const CreateAccount({super.key});

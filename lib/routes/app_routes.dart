@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:vango_driver_app/features/pages/auth/signup_or_login.dart';
-import 'package:vango_driver_app/screecreate_group_page.dart';
-import 'package:vango_driver_app/features/pages/home/home_page.dart';
-import 'package:vango_driver_app/features/pages/onbording/language_page.dart';
-import 'package:vango_driver_app/features/pages/auth/create_account.dart';
-import 'package:vango_driver_app/features/pages/auth/OTP_verification.dart';
-import 'package:vango_driver_app/features/pages/trips/trip_page.dart';
-import 'package:vango_driver_app/features/pages/vehicle_info/add_vehicle.dart';
-import 'package:vango_driver_app/features/pages/vehicle_info/document_verification.dart';
+import 'package:vango_driver_app/screens/auth/signup_or_login.dart';
+import 'package:vango_driver_app/screens/home/create_group_page.dart';
+import 'package:vango_driver_app/screens/home/home_page.dart';
+import 'package:vango_driver_app/screens/onbording/language_page.dart';
+import 'package:vango_driver_app/screens/auth/create_account.dart';
+import 'package:vango_driver_app/screens/auth/OTP_verification.dart';
+import 'package:vango_driver_app/screens/trips/trip_page.dart';
+import 'package:vango_driver_app/screens/vehicle_info/add_vehicle.dart';
+import 'package:vango_driver_app/screens/vehicle_info/document_verification.dart';
 
 
 class AppRoutes {
